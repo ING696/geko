@@ -9,10 +9,17 @@
     a.contact-link {
       color: #eaeaea;
       font-size: x-large;
+      margin: 0 15px;
       text-decoration: none;
       transition: color 0.3s;
     }
-
+    main {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
     a.contact-link:hover {
       color: #faa307;
       text-decoration: none;
@@ -29,7 +36,17 @@
           padding-right: 20px;
         "
       >
-        <img src="logo.jpg" alt="Logo" style="width: 50px; height: auto" />
+        <a
+          href="index.html"
+          style="display: inline-block; vertical-align: middle"
+        >
+          <img
+            src="logo.jpg"
+            alt="Logo"
+            style="width: 60px; height: auto; display: block"
+          />
+        </a>
+
         <nav style="display: flex; gap: 20px">
           <a href="index.html" class="contact-link">Home</a>
           <a href="about.html" class="contact-link">About Them</a>
@@ -37,117 +54,250 @@
         </nav>
       </div>
     </header>
-    <h1 style="text-align: center; text-transform: uppercase">
-      Our Little Furry Friends
-    </h1>
-    <div
-      style="
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        padding: 20px;
-        gap: 20px;
-      "
-    >
-      <div>
-        <h2 style="text-transform: capitalize; color: #faa307">
-          Meet Our Adorable Puppies and Kittens
-        </h2>
-        <p style="text-align: justify">
-          Puppies and kittens are some of the most playful and loving companions
-          you can have. Understanding their habits and needs will help you take
-          better care of them and enjoy every moment together.
-        </p>
-      </div>
-      <img
-        src="about_first_pic.jpg"
-        alt="A cute kitten and puppy"
-        style="width: 400px; height: auto"
+    <main style="margin: 0 20px">
+      <h1 style="text-align: center; text-transform: uppercase">
+        Our Little Furry Friends
+      </h1>
+      <section
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          padding: 0 20px;
+          gap: 20px;
+        "
+      >
+        <div>
+          <h2 style="text-transform: capitalize; color: #faa307">
+            Meet Our Adorable Puppies and Kittens
+          </h2>
+          <p style="text-align: justify">
+            Puppies and kittens are some of the most playful and loving
+            companions you can have. Understanding their habits and needs will
+            help you take better care of them and enjoy every moment together.
+          </p>
+        </div>
+        <img
+          src="about_first_pic.jpg"
+          alt="A cute kitten and puppy"
+          style="
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+          "
+        />
+      </section>
+      <hr
+        style="
+          border: 0.5px solid #344e41;
+          margin-left: 20px;
+          margin-right: 20px;
+        "
       />
-    </div>
-    <hr
-      style="border: 0.5px solid #344e41; margin-left: 20px; margin-right: 20px"
-    />
-    <div
-      style="
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        padding: 20px;
-        gap: 20px;
-      "
-    >
-      <img
-        src="kittens.jpg"
-        alt="A cute kitten and puppy"
-        style="width: 400px; height: auto"
+      <section
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          padding: 20px;
+          gap: 20px;
+        "
+      >
+        <img
+          src="kittens.jpg"
+          alt="A cute kitten and puppy"
+          style="
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+          "
+        />
+        <div>
+          <h2 style="text-transform: capitalize; color: #faa307">
+            Common Kitten Habits
+          </h2>
+          <p style="text-align: justify">
+            Kittens are naturally curious and love to investigate, climb, and
+            hide in small spaces. They enjoy playing with toys, which helps them
+            practice their hunting instincts. Grooming is important for kittens,
+            and they spend a lot of time cleaning themselves. Like puppies,
+            kittens also sleep a lot, usually 16–20 hours a day.
+          </p>
+        </div>
+      </section>
+      <hr
+        style="
+          border: 0.5px solid #344e41;
+          margin-left: 20px;
+          margin-right: 20px;
+        "
       />
-      <div>
-        <h2 style="text-transform: capitalize; color: #faa307">
-          Common Kitten Habits
-        </h2>
-        <p style="text-align: justify">
-          Kittens are naturally curious and love to investigate, climb, and hide
-          in small spaces. They enjoy playing with toys, which helps them
-          practice their hunting instincts. Grooming is important for kittens,
-          and they spend a lot of time cleaning themselves. Like puppies,
-          kittens also sleep a lot, usually 16–20 hours a day.
-        </p>
-      </div>
-    </div>
-    <hr
-      style="border: 0.5px solid #344e41; margin-left: 20px; margin-right: 20px"
-    />
-    <div
-      style="
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        padding: 20px;
-        gap: 20px;
-      "
-    >
-      <div>
-        <h2 style="text-transform: capitalize; color: #faa307">Puppy Habits</h2>
-        <p style="text-align: justify">
-          Puppies are playful and love to explore their surroundings, chew toys,
-          and engage in fun activities. They are curious and eager to learn
-          commands and social behaviors, which makes training an exciting
-          experience. Puppies also sleep a lot—up to 18–20 hours a day!
-          Additionally, they enjoy socializing and meeting new people as well as
-          other pets.
-        </p>
-      </div>
-      <img
-        src="puppies.jpg"
-        alt="A cute kitten and puppy"
-        style="width: 400px; height: auto"
+      <section
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          padding: 20px;
+          gap: 20px;
+        "
+      >
+        <div>
+          <h2 style="text-transform: capitalize; color: #faa307">
+            Puppy Habits
+          </h2>
+          <p style="text-align: justify">
+            Puppies are playful and love to explore their surroundings, chew
+            toys, and engage in fun activities. They are curious and eager to
+            learn commands and social behaviors, which makes training an
+            exciting experience. Puppies also sleep a lot—up to 18–20 hours a
+            day! Additionally, they enjoy socializing and meeting new people as
+            well as other pets.
+          </p>
+        </div>
+        <img
+          src="puppies.jpg"
+          alt="A cute kitten and puppy"
+          style="
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+          "
+        />
+      </section>
+      <hr
+        style="
+          border: 0.5px solid #344e41;
+          margin-left: 20px;
+          margin-right: 20px;
+        "
       />
-    </div>
-    <hr
-      style="border: 0.5px solid #344e41; margin-left: 20px; margin-right: 20px"
-    />
-    <h2 style="color: #faa307; text-align: center">
-      Tips for Taking Care of Puppies and Kittens
-    </h2>
-    <div
-      style="
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        padding: 20px;
-        gap: 20px;
-      "
-    >
-    <img src="about_second_pic.jpg" alt="Kitten and puppy" style="width: 400px; height: auto" />
-      <ul>
-        <li>Provide fresh water and a balanced diet suitable for their age.</li>
-        <li>Ensure they have a safe space to sleep and rest.</li>
-        <li>Offer toys and activities to stimulate their minds and bodies.</li>
-        <li>Regularly visit the vet for check-ups and vaccinations.</li>
-        <li>Give them lots of love, attention, and gentle training.</li>
-      </ul>
-    </div>
+      <h2 style="color: #faa307; text-align: center">
+        Tips for Taking Care of Puppies and Kittens
+      </h2>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          padding: 20px;
+          gap: 20px;
+        "
+      >
+        <img
+          src="about_second_pic.jpg"
+          alt="Kitten and puppy"
+          style="
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+          "
+        />
+        <ul>
+          <li>
+            Provide fresh water and a balanced diet suitable for their age.
+          </li>
+          <li>Ensure they have a safe space to sleep and rest.</li>
+          <li>
+            Offer toys and activities to stimulate their minds and bodies.
+          </li>
+          <li>Regularly visit the vet for check-ups and vaccinations.</li>
+          <li>Give them lots of love, attention, and gentle training.</li>
+        </ul>
+      </div>
+      <hr
+        style="
+          border: 0.5px solid #344e41;
+          margin-left: 20px;
+          margin-right: 20px;
+        "
+      />
+      <section style="padding: 20px; text-align: center">
+        <div
+          style="
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: nowrap;
+          "
+        >
+          <div style="text-align: center; flex-shrink: 0">
+            <h2 style="color: #faa307; margin-bottom: 20px">
+              Daily Care Plan for Puppies and Kittens
+            </h2>
+
+            <table
+              style="
+                text-align: center;
+                border-collapse: separate;
+                border-spacing: 15px;
+                min-width: 250px;
+                max-width: 500px;
+              "
+            >
+              <thead>
+                <tr>
+                  <th>Time of Day</th>
+                  <th>Activity</th>
+                  <th>For Whom</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>08:00 - 09:00</td>
+                  <td>Morning walk & exercise</td>
+                  <td>Puppies</td>
+                </tr>
+                <tr>
+                  <td>09:30 - 10:00</td>
+                  <td>Breakfast</td>
+                  <td>Puppies & Kittens</td>
+                </tr>
+                <tr>
+                  <td>11:00 - 12:00</td>
+                  <td>Playtime / Toys</td>
+                  <td>Puppies & Kittens</td>
+                </tr>
+                <tr>
+                  <td>14:00 - 15:00</td>
+                  <td>Nap / Rest time</td>
+                  <td>Puppies & Kittens</td>
+                </tr>
+                <tr>
+                  <td>16:00 - 17:00</td>
+                  <td>Training / Socializing</td>
+                  <td>Puppies</td>
+                </tr>
+                <tr>
+                  <td>18:00 - 18:30</td>
+                  <td>Dinner</td>
+                  <td>Puppies & Kittens</td>
+                </tr>
+                <tr>
+                  <td>20:00 - 21:00</td>
+                  <td>Evening cuddle & grooming</td>
+                  <td>Puppies & Kittens</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <img
+            src="about_third_pic.jpg"
+            alt="Puppy and Kitten sleeping"
+            style="
+              width: 400px;
+              height: auto;
+              border-radius: 10px;
+              flex-shrink: 0;
+              box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+            "
+          />
+        </div>
+      </section>
+    </main>
 
     <footer
       style="
@@ -167,8 +317,6 @@
             font-weight: 500;
             transition: color 0.3s;
           "
-          onmouseover="this.style.color = '#faa307'"
-          onmouseout="this.style.color = '#eaeaea'"
           >Home</a
         >
         <a
@@ -180,8 +328,6 @@
             font-weight: 500;
             transition: color 0.3s;
           "
-          onmouseover="this.style.color = '#faa307'"
-          onmouseout="this.style.color = '#eaeaea'"
           >About Them</a
         >
         <a
@@ -191,10 +337,7 @@
             margin: 0 15px;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
           "
-          onmouseover="this.style.color = '#faa307'"
-          onmouseout="this.style.color = '#eaeaea'"
           >Contact</a
         >
       </nav>
