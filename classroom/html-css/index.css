@@ -1,4 +1,4 @@
-div {
+/* div {
     border: 1px solid #000;
     width: 100px;
     height: 100px;
@@ -11,4 +11,51 @@ div {
 }
 #box1 {
     border: 5px solid #000;
-}
+} */
+ body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+ }
+
+ .box {
+    border: 3px solid #000;
+    width: 400px;
+    aspect-ratio: 4/3;
+    position: relative;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+ }
+ .circle {
+    border: 3px solid #000;
+    width: 100%;
+    border-radius: 100%;
+    aspect-ratio: 4/3;
+    position: absolute;
+ }
+ /* .position {
+    border: 3px solid #000;
+    width: 400px;
+ }
+ .p {
+    background: #0008;
+    color:aliceblue;
+    text-align: center;
+    margin: 1px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+ } */
+ /* #relative {
+    position: relative;
+    top: 10px;
+ } ira dirqi nkatmamb
+ #absolute {
+    position: absolute;
+ } cnoxi nkatmamb
+ #fixed {
+    position: fixed;
+ } patuhani nkatmamb */
+  /* #absolute {
+    position: sticky;
+  } galis a u kpnum*/
