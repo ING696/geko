@@ -1,0 +1,22 @@
+.body {
+  position: relative;
+}
+.figure {
+    width: 200px;
+    aspect-ratio: 1/1;
+    border: 3px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.circle {
+    width: 50%;
+    border: 3px solid yellow;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

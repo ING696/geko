@@ -1,0 +1,48 @@
+.redSquare {
+    width: 400px;
+    background: red;
+    aspect-ratio: 2/2;
+}
+.redSq {
+    width: 400px;
+    border: 3px solid red;
+    aspect-ratio: 1/2;
+}
+.greenSquare {
+    width: 400px;
+    background: green;
+    aspect-ratio: 2/2;
+}
+.greenSq {
+    width: 400px;
+    border: 3px solid green;
+    aspect-ratio: 2/1;
+}
+
+.blueSquare {
+    width: 400px;
+    background: blue;
+    aspect-ratio: 2/2;
+}
+.square {
+    width: 400px;
+    border: 3px solid #000;;
+    aspect-ratio: 2/2;
+    position: relative;
+}
+.circle {
+    width: 50%;
+    border: 3px solid yellow;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container {
+    display: flex;
+    gap: 5px;
+    margin: 5px 0;
+}
+
