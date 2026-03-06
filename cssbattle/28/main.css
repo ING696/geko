@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 400px;
+  height: 300px;
+  background: #1a4341;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.inner-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+}
+.g {
+  width: 50px;
+  aspect-ratio: 1/1;
+}
+.g1 {
+  background: #998235;
+  border-radius: 50%;
+}
+.g2 {
+  background: #f3ac3c;
+  border-radius: 50% 50% 0 0;
+}
+.g3 {
+  background: #998235;
+  border-radius: 50% 50% 0 0;
+}
+.g4 {
+  background: #f3ac3c;
+  border-radius: 50%;
+}
+.g5 {
+  background: #f3ac3c;
+  border-radius: 0 0 50% 50%;
+}
+.g8 {
+  background: #998235;
+  border-radius: 0 0 50% 50%;
+}
