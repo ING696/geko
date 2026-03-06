@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  height: 90vh;
+  width: 90vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 10px;
+}
+.g {
+  border-radius: 10px;
+}
+.g1 {
+  background: blue;
+  border: 1px solid #000;
+  grid-column: span 12;
+}
+.g2 {
+  background: blue;
+  border: 1px solid #000;
+  grid-column: span 6;
+}
+.g3 {
+  background: blue;
+  border: 1px solid #000;
+  grid-column: span 6;
+}
+.g4 {
+  background: blue;
+  border: 1px solid #000;
+  grid-column: span 4;
+}
+.g5 {
+  background: blue;
+  border: 1px solid #000;
+  grid-column: span 4;
+}
+.g6 {
+  background: blue;
+  border: 1px solid #000;
+  grid-column: span 4;
+}
+.g7 {
+  background: blue;
+  border: 1px solid #000;
+  grid-column: span 3;
+}
+.g8 {
+  background: blue;
+  border: 1px solid #000;
+  grid-column: span 3;
+}
+.g9 {
+  background: blue;
+  border: 1px solid #000;
+  grid-column: span 3;
+}
+.g10 {
+  background: blue;
+  border: 1px solid #000;
+  grid-column: span ;
+}
+.g11 {
+  background: blue;
+  border: 1px solid #000;
+  grid-column: span 2;
+}
+.g12 {
+  background: blue;
+  border: 1px solid #000;
+  grid-column: span 2;
+}
+.g13 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g14 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g15 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g16 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g17 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g18 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g19 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g20 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g21 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g22 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g23 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g24 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g25 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g26 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g27 {
+  background: blue;
+  border: 1px solid #000;
+}
+.g28 {
+  background: blue;
+  border: 1px solid #000;
+}
