@@ -1,0 +1,41 @@
+ * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  }
+  body {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    background:#FDFFE9;
+    position:relative;
+    height: 100vh;
+  }
+  .container{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .g2  {
+    background: #2D3464;
+    width: 150px;
+    height:150px;
+    border-radius: 50%;
+  }
+  .g1 {
+    background: #D95362;
+    width: 150px;
+    height:150px;
+    border-radius: 50%;
+  }
+  .g3 {
+    background: #D95362;
+    width: 150px;
+    height:150px
+  }
+  .square {
+    position:absolute;
+    border: 20px solid #FDFFE9;
+    width:300px;
+    height:300px;
+  }
