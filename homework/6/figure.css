@@ -1,16 +1,35 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .circle {
-    width: 50%;
-    aspect-ratio: 1/1;
-    border: 
-     solid #000;
+  width: 300px;
+  aspect-ratio: 1/1;
+  rotate: 45deg;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 50%;
+}
+.up-left {
+  border-color: transparent #000 transparent  transparent;
+  rotate: 45deg;
+}
+.up-right {
+  border-color: #000 transparent transparent transparent;
+  rotate: 45deg;
+}
+.bottom-left {
+  border-color: transparent transparent #000 transparent;
+  rotate: 45deg;
+}
+.bottom-right {
+  border-color: transparent transparent transparent #000;
+  rotate: 45deg;
 }
