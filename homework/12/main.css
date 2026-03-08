@@ -1,0 +1,147 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: darkslategray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  background: black;
+  width: 250px;
+  height: 650px;
+  border-radius: 30px;
+}
+.circle {
+  width: 70%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+.red {
+  background: #6a040f;
+  animation: redCycle 10s linear infinite;
+}
+
+.yellow {
+  background: #926c15;
+  animation: yellowCycle 10s linear infinite;
+}
+
+.green {
+  background: #006400;
+  animation: greenCycle 10s linear infinite;
+}
+
+@keyframes redCycle {
+  0%,
+  30% {
+    background: red;
+    box-shadow:
+      0 0 20px red,
+      0 0 40px red,
+      0 0 60px red;
+  }
+
+  31%,
+  100% {
+    background: #6a040f;
+    box-shadow: none;
+  }
+}
+
+@keyframes yellowCycle {
+  0%,
+  20% {
+    background: #926c15;
+    box-shadow: none;
+  }
+
+  21%,
+  30% {
+    background: yellow;
+    box-shadow:
+      0 0 20px yellow,
+      0 0 40px yellow,
+      0 0 60px yellow;
+  }
+
+  31%,
+  80% {
+    background: #926c15;
+    box-shadow: none;
+  }
+
+  81%,
+  90% {
+    background: yellow;
+    box-shadow:
+      0 0 20px yellow,
+      0 0 40px yellow,
+      0 0 60px yellow;
+  }
+
+  91%,
+  100% {
+    background: #926c15;
+    box-shadow: none;
+  }
+}
+
+@keyframes greenCycle {
+  0%,
+  30% {
+    background: #006400;
+    box-shadow: none;
+  }
+
+  31%,
+  60% {
+    background: lime;
+    box-shadow:
+      0 0 20px lime,
+      0 0 40px lime,
+      0 0 60px lime;
+  }
+
+  61%,
+  65% {
+    background: #006400;
+    box-shadow: none;
+  }
+  66%,
+  70% {
+    background: lime;
+    box-shadow:
+      0 0 20px lime,
+      0 0 40px lime,
+      0 0 60px lime;
+  }
+  71%,
+  75% {
+    background: #006400;
+    box-shadow: none;
+  }
+  76%,
+  80% {
+    background: lime;
+    box-shadow:
+      0 0 20px lime,
+      0 0 40px lime,
+      0 0 60px lime;
+  }
+
+  81%,
+  100% {
+    background: #006400;
+    box-shadow: none;
+  }
+}
