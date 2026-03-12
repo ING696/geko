@@ -46,9 +46,9 @@ body {
   30% {
     background: red;
     box-shadow:
-      0 0 20px red,
-      0 0 40px red,
-      0 0 60px red;
+      0 0 20px 10px red,
+      0 0 40px 10px red,
+      0 0 60px 10px red;
   }
 
   31%,
@@ -69,9 +69,9 @@ body {
   30% {
     background: yellow;
     box-shadow:
-      0 0 20px yellow,
-      0 0 40px yellow,
-      0 0 60px yellow;
+      0 0 20px 10px yellow,
+      0 0 40px 10px yellow,
+      0 0 60px 10px yellow;
   }
 
   31%,
@@ -84,9 +84,9 @@ body {
   90% {
     background: yellow;
     box-shadow:
-      0 0 20px yellow,
-      0 0 40px yellow,
-      0 0 60px yellow;
+      0 0 20px 10px yellow,
+      0 0 40px 10px yellow,
+      0 0 60px 10px  yellow;
   }
 
   91%,
@@ -107,9 +107,9 @@ body {
   60% {
     background: lime;
     box-shadow:
-      0 0 20px lime,
-      0 0 40px lime,
-      0 0 60px lime;
+      0 0 20px 10px lime,
+      0 0 40px 10px lime,
+      0 0 60px 10px lime;
   }
 
   61%,
@@ -121,9 +121,9 @@ body {
   70% {
     background: lime;
     box-shadow:
-      0 0 20px lime,
-      0 0 40px lime,
-      0 0 60px lime;
+      0 0 20px 10px lime,
+      0 0 40px 10px lime,
+      0 0 60px 10px lime;
   }
   71%,
   75% {
@@ -134,9 +134,9 @@ body {
   80% {
     background: lime;
     box-shadow:
-      0 0 20px lime,
-      0 0 40px lime,
-      0 0 60px lime;
+      0 0 20px 10px lime,
+      0 0 40px 10px lime,
+      0 0 60px 10px lime;
   }
 
   81%,
