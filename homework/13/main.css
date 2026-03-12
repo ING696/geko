@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.board {
+  height: 90vmin;
+  aspect-ratio: 1/1;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  background: conic-gradient(
+    #8c5a3c 0% 25%,
+    white 0% 50%,
+    #8c5a3c 0% 75%,
+    white 0%
+  );
+  background-size: 25% 25%;
+  border: 1px solid #8c5a3c;
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8vmin;
+}
+
+.square:not(:empty) {
+  cursor: grab;
+}
+
+.square:not(:empty):active {
+  cursor: grabbing;
+}
