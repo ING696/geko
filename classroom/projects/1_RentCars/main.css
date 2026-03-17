@@ -60,3 +60,68 @@ ul, ol {
     list-style: none;
 }
 
+.container {
+    width: 90%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.header{
+    padding: 40px 0;
+    position: fixed;
+    width: 100%;
+
+}
+.header_wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px;
+}
+.header_logo{
+    height: 50%;
+}
+.header_logo > img  {
+    height: 100%;
+}
+.header_nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header_navlist{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:40px;
+}
+.header_navitem{
+    font-size: var(--font-size-3);
+    color: var(--color-netural-2);
+    font-weight: 500px;
+
+}
+.header_navlink{
+    display: flex;
+    gap:24px;
+    justify-content: center;
+    align-items: center;
+
+}
+.header_auth{
+    font-size: var(--font-size-3);
+    color: var(--color-netural-2);
+    font-weight: 500px;
+
+}
+.header_auth_btn{
+    font-size: var(--font-size-3);
+    color: var(--color-netural-2);
+    font-weight: 500px;
+}
+
+.header_auth_btn:nth-of-type(2) {
+    
+}
