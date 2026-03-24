@@ -1,0 +1,361 @@
+:root {
+  /* Color */
+  --color-primary: #f55757;
+  --color-primary-bg: #f5575780;
+  --color-black: #000000;
+  --color-neutral-1: #222222;
+  --color-neutral-2: #444444;
+  --color-neutral-3: #666666;
+  --color-neutral-4: #888888;
+  --color-neutral-5: #aaaaaa;
+  --color-neutral-6: #cccccc;
+  --color-neutral-7: #eeeeee;
+  --color-white: #ffffff;
+
+  /* Family */
+  --font-family-main: "Lato", sans-serif;
+  /* Font Size */
+  --font-size-1: 15px;
+  --font-size-2: 20px;
+  --font-size-3: 25px;
+  --font-size-4: 30px;
+  --font-size-5: 35px;
+  --font-size-6: 40px;
+  --font-size-7: 45px;
+  --font-size-8: 55px;
+
+  /* Transition */
+  --transition: 0.3s;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 300vh;
+  font-family: var(--font-family-main);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.container {
+  width: 90%;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.common_hgroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.common_title {
+  font-size: var(--font-size-2);
+  color: var(--color-primary-bg);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.common_heading {
+  font-size: var(--font-size-7);
+  color: var(--color-neutral-3);
+  text-transform: capitalize;
+  font-weight: 500;
+  line-height: 2;
+}
+.common_paragraph {
+  font-size: var(--font-size-1);
+  color: var(--color-neutral-5);
+  font-weight: 400;
+}
+
+.header {
+  width: 100%;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  backdrop-filter: grayscale() blur(10px);
+}
+
+.header_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+}
+
+.header_logo {
+  height: 70%;
+}
+
+.header_logo > img {
+  height: 100%;
+}
+
+.header_nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header_navlist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+
+.header_nav_item {
+  font-size: var(--font-size-1);
+  color: var(--color-neutral-2);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.hero {
+  height: 100vh;
+  max-height: 900px;
+  background: url("./img/hero_car.png") no-repeat right center / 50%;
+}
+
+.hero_wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 0;
+}
+
+.hero_block {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  max-width: 780px;
+  gap: 20px;
+}
+
+.hero_title {
+  font-weight: 700;
+  font-size: var(--font-size-8);
+  color: var(--color-neutral-3);
+  line-height: 1;
+}
+
+.hero_text {
+  width: 75%;
+  font-weight: 300;
+  font-size: var(--font-size-2);
+  color: var(--color-neutral-4);
+}
+
+.hero_buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.hero_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 35px;
+  cursor: pointer;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  text-transform: capitalize;
+  border-width: 2px;
+  border-style: solid;
+  background-color: white;
+  transition: var(--transition);
+}
+
+.hero_button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-transform: capitalize;
+  transition: var(--transition);
+}
+
+.brands {
+  padding: 80px 0;
+}
+
+.brands_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.brands_logo {
+  height: 64px;
+  filter: grayscale();
+  opacity: 0.5;
+}
+
+.brands_logo > img {
+  height: 100%;
+}
+
+.rent {
+  padding: 100px 0;
+}
+
+.rent_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.rent_group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.rent_card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 20px #ff4f4f1a;
+  gap: 10px;
+  transition: var(--transition);
+}
+.rent_card:hover {
+  transition: var(--transition);
+  translate: 0 -10px;
+  box-shadow: 0 12px 24px #ff4f4f33;
+  cursor: pointer;
+}
+
+.rent_img {
+  aspect-ratio: 5 / 3;
+  background-color: #eeeeee;
+}
+
+.rent_img > img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.rent_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}
+
+.rent_title {
+  font-size: var(--font-size-3);
+  font-weight: 500;
+  color: var(--color-neutral-3);
+}
+
+.rent_price {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.rent_price_num {
+  font-size: var(--font-size-1);
+  color: var(--color-neutral-4);
+  font-weight: 400;
+}
+.rent_price_num:nth-child(1) > span {
+  color: var(--color-neutral-2);
+  font-size: var(--font-size-5);
+  font-weight: 900;
+}
+.rent_car_location {
+  font-size: var(--font-size-1);
+  color: var(--color-neutral-4);
+  font-weight: 400;
+}
+
+.rent_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 25px;
+  border: 1.5px solid var(--color-neutral-3);
+  color: var(--color-neutral-3);
+  text-transform: capitalize;
+  background-color: #fff;
+  cursor: pointer;
+  gap: 10px;
+  transition: var(--transition);
+}
+
+.rent_button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  transition: var(--transition);
+}
+
+.service {
+  padding: 80px 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+    url("./img/service_bg.png") no-repeat center/cover;
+}
+
+.service_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.service_group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+
+.service_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.service_card:nth-of-type(1) {
+  background:
+    linear-gradient(rgba(245, 87, 87, 0.6), rgba(0, 0, 0, 0.7)),
+    url("./img/instant_rent.jpg") no-repeat center center/cover;
+}
+
+.service_card:nth-of-type(2) {
+  background:
+    linear-gradient(rgba(245, 87, 87, 0.6), rgba(0, 0, 0, 0.7)),
+    url("./img/private_driver.jpg") no-repeat center center/cover;
+}
+
+.service_card:nth-of-type(3) {
+  background:
+    linear-gradient(rgba(245, 87, 87, 0.6), rgba(0, 0, 0, 0.7)),
+    url("./img/long_trip.jpg") no-repeat center center/cover;
+}
