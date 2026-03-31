@@ -23,6 +23,7 @@
   --font-size-6: 40px;
   --font-size-7: 45px;
   --font-size-8: 55px;
+  --font-size-9: 75px;
 
   /* Transition */
   --transition: 0.3s;
@@ -330,9 +331,10 @@ ol {
 }
 
 .service_group {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .service_card {
@@ -340,22 +342,212 @@ ol {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 
-.service_card:nth-of-type(1) {
-  background:
-    linear-gradient(rgba(245, 87, 87, 0.6), rgba(0, 0, 0, 0.7)),
-    url("./img/instant_rent.jpg") no-repeat center center/cover;
+.service_img {
+  width: 400px;
+  height: 500px;
+}
+.service_img > img {
+  height: 100%;
+  width: 100%;
 }
 
-.service_card:nth-of-type(2) {
-  background:
-    linear-gradient(rgba(245, 87, 87, 0.6), rgba(0, 0, 0, 0.7)),
-    url("./img/private_driver.jpg") no-repeat center center/cover;
+.service_desc {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: white;
+  text-align: center;
+  gap: 25px;
 }
 
-.service_card:nth-of-type(3) {
-  background:
-    linear-gradient(rgba(245, 87, 87, 0.6), rgba(0, 0, 0, 0.7)),
-    url("./img/long_trip.jpg") no-repeat center center/cover;
+.service_icon {
+  font-size: var(--font-size-9);
+}
+
+.service_title {
+  font-size: var(--font-size-3);
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.service_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service_bth {
+  padding: 10px 20px;
+  background: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.service_bth:hover {
+  background: var(--color-primary);
+  color: white;
+  transition: var(--transition);
+}
+
+.why {
+  padding: 80px 0;
+}
+
+.why_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.why_group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.why_list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.why_list_item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 15px;
+}
+
+.why_icon {
+  font-size: var(--font-size-9);
+  color: var(--color-primary);
+  grid-row: span 2;
+}
+
+.why_title {
+  font-size: var(--font-size-3);
+  color: var(--color-neutral-3);
+  text-transform: capitalize;
+}
+.why_text {
+  font-size: var(--font-size-1);
+  color: var(--color-neutral-4);
+  font-weight: 400;
+}
+
+.contact {
+  padding: 80px 0;
+}
+
+.contact_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact_left {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.contact_info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: var(--color-neutral-4);
+}
+
+.contact_info_items {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact_info_icon {
+  font-size: var(--font-size-2);
+  color: var(--color-primary);
+}
+
+.contact_social_items {
+  display: flex;
+  gap: 20px;
+}
+.contact_social_item {
+  font-size: var(--font-size-2);
+  color: var(--color-primary);
+  padding: 5px;
+}
+.contact_social_item:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  padding: 5px;
+  transition: var(--transition);
+}
+.contact_right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact_map {
+  max-width: 610px;
+  height: 400px;
+}
+.contact_map > iframe {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.main_btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.review {
+  padding: 80px 0;
+}
+
+.review_group {
+  display: flex;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.review_card {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 5px 20px #00000010;
+}
+
+.subscribe {
+  background: #fbe1e1;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.subscribe_form {
+  margin-top: 20px;
+}
+
+.subscribe_form input {
+  padding: 10px;
+  width: 250px;
 }
