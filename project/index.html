@@ -271,7 +271,9 @@
                 </div>
               </div>
               <div class="why_list_item">
-                <div class="why_icon"></div>
+                <div class="why_icon">
+                  <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                </div>
                 <div class="why_title">refund</div>
                 <div class="why_text">
                   Our service guarantee provides a money back opportunity if the
@@ -330,19 +332,11 @@
                 </div>
                 Jl. Raya Cihaluan No.112 Tangerang Selatan, Indonesia 41222
               </div>
-              <div class="contact_social_items">
-                <a href="" class="contact_social_item"
-                  ><i class="fa-brands fa-linkedin-in"></i
-                ></a>
-                <a href="" class="contact_social_item"
-                  ><i class="fa-brands fa-facebook-f"></i
-                ></a>
-                <a href="" class="contact_social_item"
-                  ><i class="fa-brands fa-instagram"></i
-                ></a>
-                <a href="" class="contact_social_item"
-                  ><i class="fa-brands fa-twitter"></i
-                ></a>
+              <div class="socials">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
               </div>
             </div>
           </div>
@@ -367,8 +361,13 @@
 
     <section class="review">
       <div class="container review_wrap">
-        <div class="common_title">our review</div>
-        <h3 class="common_heading">What They Say ?</h3>
+        <hgroup class="common_hgroup">
+          <div class="common_title">our review</div>
+          <h3 class="common_heading">what they say</h3>
+          <p class="common_paragraph">
+            Here are some comments from our customers, be one of them
+          </p>
+        </hgroup>
 
         <div class="review_group">
           <div class="review_card">
@@ -392,66 +391,80 @@
     </section>
 
     <section class="subscribe">
-      <div class="container subscribe_wrap">
-        <h3>Subscribe Our News</h3>
-        <div class="subscribe_form">
-          <input type="email" placeholder="example@gmail.com" />
-          <button class="main_btn">Subscribe</button>
+      <div class="container">
+        <div class="subscribe_wrap">
+          <hgroup class="subscribe_hgroup">
+            <h1 class="subscribe_title">subscribe our news</h1>
+            <p class="subscribe_text">
+              We can help you provide the latest news whenever and wherever you
+              are via email
+            </p>
+          </hgroup>
+          <form class="subscribe_form">
+            <input
+              type="email"
+              placeholder="example@gmail.com"
+              class="subscribe_input"
+            />
+            <button type="submit" class="subscribe_btn">Subscribe</button>
+          </form>
         </div>
       </div>
     </section>
     <footer class="footer">
-  <div class="container footer_wrap">
+      <div class="container footer_wrap">
+        <div class="footer_left">
+          <a href="" class="footer_logo"
+            ><img src="./img/logo.svg" alt="Header Logo"
+          /></a>
+          <p class="footer_text">
+            We are a well-known car rental service that has many partners in
+            each region to connect with you to assist in your trip in meetings,
+            events, holidays or long trips.
+          </p>
 
-    <div class="footer_left">
-      <div class="footer_logo">ORENN</div>
-      <p class="footer_text">
-        We are a well-known car rental service that has many partners in each region to connect with you to assist in your trip in meetings, events, holidays or long trips.
-      </p>
+          <div class="socials">
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
 
-      <div class="footer_socials">
-        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <div class="footer_col">
+          <h4 class="footer_title">Company</h4>
+          <ul>
+            <li>About Us</li>
+            <li>Services</li>
+            <li>Cars</li>
+            <li>Our Partner</li>
+          </ul>
+        </div>
+
+        <div class="footer_col">
+          <h4 class="footer_title">Services</h4>
+          <ul>
+            <li>Instant Rent</li>
+            <li>Private Driver</li>
+            <li>Long Trip</li>
+          </ul>
+        </div>
+
+        <div class="footer_col">
+          <h4 class="footer_title">Support</h4>
+          <ul>
+            <li>Blog</li>
+            <li>FAQ</li>
+            <li>Call Center</li>
+            <li>Partner With Us</li>
+            <li>Terms & Condition</li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="footer_col">
-      <h4>Company</h4>
-      <ul>
-        <li class="active">About Us</li>
-        <li>Services</li>
-        <li>Cars</li>
-        <li>Our Partner</li>
-      </ul>
-    </div>
-
-    <div class="footer_col">
-      <h4>Services</h4>
-      <ul>
-        <li>Instant Rent</li>
-        <li>Private Driver</li>
-        <li>Long Trip</li>
-      </ul>
-    </div>
-
-    <div class="footer_col">
-      <h4>Support</h4>
-      <ul>
-        <li>Blog</li>
-        <li>FAQ</li>
-        <li>Call Center</li>
-        <li>Partner With Us</li>
-        <li>Terms & Condition</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="footer_top">
-    <i class="fa-solid fa-angle-up"></i>
-  </div>
-</footer>
+      <div class="footer_top">
+        <i class="fa-solid fa-angle-up"></i>
+      </div>
+    </footer>
   </body>
 </html>
