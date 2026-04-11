@@ -34,3 +34,11 @@ for (let i = 0; i < numbers.length; i++) {
   }
 }
 console.log("Number of even numbers in the array: " + evenCount);
+
+//Fibonacci
+let fib = [0, 1];
+for(let i = 0; i < 10; i++) {
+  fib[i+2] = fib[i+1] + fib[i];
+}
+
+console.log(fib)
