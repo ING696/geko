@@ -88,6 +88,27 @@ ol {
   font-weight: 400;
 }
 
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socials a {
+  width: 35px;
+  height: 35px;
+  border: 1px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
 .header {
   width: 100%;
   padding: 20px 0;
@@ -276,7 +297,7 @@ ol {
 
 .rent_price {
   display: flex;
-  justify-content: space-between;
+  flex-grow: 1;
   align-content: center;
 }
 .rent_price_num {
@@ -528,7 +549,6 @@ ol {
 .review_group {
   display: flex;
   gap: 20px;
-  margin: 40px 0;
 }
 
 .review_card {
@@ -539,17 +559,46 @@ ol {
 
 .subscribe {
   background: #fbe1e1;
-  padding: 50px 0;
+  padding: 80px 0;
+}
+
+.subscribe_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.subscribe_hgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.subscribe_title {
+  color: var(--color-neutral-3);
+  font-size: var(--font-size-5);
+  text-transform: capitalize;
+  font-weight: 700;
+  line-height: 2;
   text-align: center;
+}
+.subscribe_text {
+  color: var(--color-neutral-3);
+  font-size: var(--font-size-1);
 }
 
 .subscribe_form {
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
-.subscribe_form input {
+.subscribe_input {
   padding: 10px;
-  width: 250px;
+  border: none;
+  width: 100%;
 }
 
 .footer {
@@ -569,10 +618,6 @@ ol {
 }
 
 .footer_logo {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: 15px;
 }
 
 .footer_text {
@@ -582,28 +627,7 @@ ol {
   margin-bottom: 20px;
 }
 
-.footer_socials {
-  display: flex;
-  gap: 10px;
-}
-
-.footer_socials a {
-  width: 35px;
-  height: 35px;
-  border: 1px solid var(--color-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-primary);
-  transition: 0.3s;
-}
-
-.footer_socials a:hover {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-.footer_col h4 {
+.footer_title {
   font-size: 20px;
   margin-bottom: 20px;
   color: var(--color-neutral-3);
