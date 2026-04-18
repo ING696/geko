@@ -1,63 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Backgammon — Long & Short</title>
-<link rel="stylesheet" href="main.css">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <title>Random Color</title>
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-<h1>Backgammon</h1>
-<p class="subtitle">Long Game &amp; Short Game</p>
-
-<div class="mode-bar">
-  <button class="mode-btn active" id="btnLong" onclick="setMode('long')">Long (Tavla)</button>
-  <button class="mode-btn" id="btnShort" onclick="setMode('short')">Short (Narde / Acey)</button>
-</div>
-
-<div class="status-bar">
-  <div class="player-indicator" id="playerIndicator">
-    <div class="pip-dot white" id="turnDot"></div>
-    <span id="turnText">White's Turn</span>
-  </div>
-  <div class="status-msg" id="statusMsg">Roll to begin</div>
-  <div class="score-box" id="scoreBox">W: 0 &nbsp;|&nbsp; B: 0</div>
-</div>
-
-<div class="dice-area">
-  <span class="dice-label">White</span>
-  <div class="dice-group" id="whiteDice"></div>
-  <div class="dice-group" id="blackDice"></div>
-  <span class="dice-label">Black</span>
-</div>
-
-<div class="btn-row">
-  <button class="btn primary" id="btnRoll" onclick="rollDice()">Roll Dice</button>
-  <button class="btn" id="btnPass" onclick="endTurn()" disabled>Pass Turn</button>
-  <button class="btn" onclick="newGame()">New Game</button>
-</div>
-
-<div class="board-row-wrapper">
-  <div class="board">
-    <div class="board-inner" id="boardInner"></div>
-  </div>
-  <div class="bear-off-area" id="bearOffArea"></div>
-</div>
-
-<div class="rules-box" id="rulesBox"></div>
-
-<!-- Win Modal -->
-<div class="modal-overlay" id="winModal" style="display:none">
-  <div class="modal">
-    <h2 id="winTitle">Victory!</h2>
-    <p id="winMsg"></p>
-    <div class="modal-btns">
-      <button class="btn primary" onclick="newGame()">Play Again</button>
-    </div>
-  </div>
-</div>
+<button id="btn">Change Color</button>
 
 <script src="script.js"></script>
 </body>
