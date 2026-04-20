@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="hy">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Տեղերի Ամրագրում</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="toast" id="toast">✓ Ամրագրումը հաջողված է!</div>
+
+    <div class="container">
+      <h1>Ընտրեք տեղ</h1>
+
+      <div class="legend">
+        <div class="legend-item">
+          <div
+            class="legend-dot"
+            style="background: #f0ede6; border: 1px solid #ddd"
+          ></div>
+          Ազատ
+        </div>
+        <div class="legend-item">
+          <div
+            class="legend-dot"
+            style="background: #b5d4f4; border: 1.5px solid #378add"
+          ></div>
+          Ընտրված
+        </div>
+        <div class="legend-item">
+          <div
+            class="legend-dot"
+            style="background: #f7c1c1; border: 1px solid #e24b4a"
+          ></div>
+          Զբաղված
+        </div>
+      </div>
+
+      <div class="grid-wrapper">
+        <div class="row-labels" id="row-labels"></div>
+        <div class="seat-grid" id="seat-grid"></div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-label">Ընտրված տեղեր</div>
+          <div class="stat-value" id="count">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Ընդհանուր գումար</div>
+          <div class="stat-value" id="total">0 ֏</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn-book" id="book-btn" disabled onclick="bookSeats()">
+          Ամրագրել
+        </button>
+        <p class="price-note">1 տեղ = 2 500 ֏</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
