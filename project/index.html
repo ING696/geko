@@ -3,11 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -15,319 +14,1597 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <title>Car Renting</title>
+    <style>
+      :root {
+        --color-primary: #f55757;
+        --color-primary-light: rgba(245, 87, 87, 0.15);
+        --color-primary-bg: rgba(245, 87, 87, 0.5);
+        --color-black: #000000;
+        --color-neutral-1: #222222;
+        --color-neutral-2: #444444;
+        --color-neutral-3: #666666;
+        --color-neutral-4: #888888;
+        --color-neutral-5: #aaaaaa;
+        --color-neutral-6: #cccccc;
+        --color-neutral-7: #eeeeee;
+        --color-white: #ffffff;
+        --font-family-main: "Lato", sans-serif;
+        --transition: 0.3s;
+      }
+
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-family-main);
+        color: var(--color-neutral-2);
+        background: #fff;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul,
+      ol {
+        list-style: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-tag {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--color-primary-bg);
+        margin-bottom: 6px;
+      }
+
+      .section-title {
+        font-size: 36px;
+        font-weight: 500;
+        color: var(--color-neutral-3);
+        text-transform: capitalize;
+        margin-bottom: 12px;
+      }
+
+      .section-desc {
+        font-size: 15px;
+        color: var(--color-neutral-5);
+        max-width: 600px;
+        line-height: 1.7;
+      }
+
+      .header {
+        width: 100%;
+        padding: 16px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .header_wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 48px;
+      }
+
+      .header_logo {
+        display: flex;
+        align-items: center;
+        font-size: 22px;
+        font-weight: 900;
+        color: var(--color-neutral-1);
+        letter-spacing: -1px;
+      }
+
+      .header_logo span {
+        color: var(--color-primary);
+      }
+
+      .header_nav {
+        display: flex;
+        align-items: center;
+      }
+
+      .header_navlist {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .header_nav_item a {
+        font-size: 14px;
+        color: var(--color-neutral-3);
+        font-weight: 500;
+        text-transform: capitalize;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .header_nav_item a::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color-primary);
+        transition: var(--transition);
+      }
+
+      .header_nav_item a:hover {
+        color: var(--color-primary);
+      }
+      .header_nav_item a:hover::after {
+        width: 100%;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+        background: none;
+        border: none;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--color-neutral-2);
+        transition: var(--transition);
+        border-radius: 2px;
+      }
+
+      .hamburger.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        z-index: 9998;
+        padding: 20px 0;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        border-top: 1px solid var(--color-neutral-7);
+      }
+
+      .mobile-nav.open {
+        display: block;
+      }
+
+      .mobile-nav ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0 5%;
+      }
+
+      .mobile-nav ul li a {
+        display: block;
+        padding: 14px 0;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--color-neutral-3);
+        border-bottom: 1px solid var(--color-neutral-7);
+        text-transform: capitalize;
+      }
+
+      .hero {
+        padding-top: 80px;
+        min-height: 100vh;
+        max-height: 900px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        background: #fff;
+        background: url("./img/hero_car.png") no-repeat right center / 50%;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 55%;
+        height: 100%;
+        background: radial-gradient(
+          ellipse at 60% 40%,
+          rgba(245, 87, 87, 0.04) 0%,
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+
+      .hero_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 60px 0;
+        gap: 40px;
+      }
+
+      .hero_content {
+        flex: 0 0 48%;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .hero_title {
+        font-weight: 700;
+        font-size: 52px;
+        color: var(--color-neutral-2);
+        line-height: 1.15;
+      }
+
+      .hero_text {
+        font-size: 16px;
+        font-weight: 300;
+        color: var(--color-neutral-4);
+        line-height: 1.7;
+        max-width: 400px;
+      }
+
+      .hero_buttons {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        padding: 14px 30px;
+        background: var(--color-primary);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: capitalize;
+        border: 2px solid var(--color-primary);
+        cursor: pointer;
+        transition: var(--transition);
+        letter-spacing: 0.5px;
+      }
+
+      .btn-primary:hover {
+        background: transparent;
+        color: var(--color-primary);
+      }
+
+      .btn-outline {
+        padding: 14px 30px;
+        background: transparent;
+        color: var(--color-primary);
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: capitalize;
+        border: 2px solid var(--color-primary);
+        cursor: pointer;
+        transition: var(--transition);
+        letter-spacing: 0.5px;
+      }
+
+      .btn-outline:hover {
+        background: var(--color-primary);
+        color: #fff;
+      }
+
+      .hero_image {
+        flex: 0 0 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      .hero_car_placeholder {
+        width: 100%;
+        max-width: 560px;
+        aspect-ratio: 4/3;
+        background: linear-gradient(135deg, #f8f8f8 0%, #efefef 100%);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero_car_placeholder::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 70% 30%,
+            rgba(245, 87, 87, 0.06) 0%,
+            transparent 60%
+          ),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Cellipse cx='300' cy='200' rx='280' ry='180' fill='none' stroke='%23eee' stroke-width='1'/%3E%3Cellipse cx='300' cy='200' rx='200' ry='130' fill='none' stroke='%23eee' stroke-width='1'/%3E%3Cellipse cx='300' cy='200' rx='120' ry='80' fill='none' stroke='%23eee' stroke-width='1'/%3E%3C/svg%3E")
+            center/cover no-repeat;
+      }
+
+      .hero_car_svg {
+        font-size: 120px;
+        color: var(--color-neutral-6);
+        position: relative;
+        z-index: 1;
+      }
+
+      .map-pin {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        background: #fff;
+        border-radius: 20px;
+        padding: 5px 10px 5px 6px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--color-neutral-2);
+      }
+
+      .map-pin i {
+        color: var(--color-primary);
+        font-size: 13px;
+      }
+      .pin-a {
+        top: 20%;
+        right: 10%;
+      }
+      .pin-b {
+        top: 40%;
+        right: 25%;
+      }
+
+      .brands {
+        padding: 60px 0;
+      }
+
+      .brands_wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .brand_item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: grayscale(100%);
+        opacity: 0.45;
+        transition: var(--transition);
+        flex: 1;
+        min-width: 60px;
+      }
+
+      .brand_item:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+
+      .brand_item i {
+        font-size: 28px;
+      }
+
+      .brand_item .brand-name {
+        font-size: 18px;
+        font-weight: 900;
+        letter-spacing: -0.5px;
+        color: var(--color-neutral-2);
+      }
+
+      .rent {
+        padding: 100px 0;
+      }
+
+      .rent_group {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+
+      .rent_card {
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 5px 20px rgba(255, 79, 79, 0.1);
+        transition: var(--transition);
+        cursor: pointer;
+        background: #fff;
+        border: 1px solid #f5f5f5;
+      }
+
+      .rent_card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 40px rgba(255, 79, 79, 0.18);
+      }
+
+      .rent_img {
+        aspect-ratio: 5/3;
+        background: var(--color-neutral-7);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .rent_img .car-icon {
+        font-size: 70px;
+        color: var(--color-neutral-5);
+      }
+
+      .rent_info {
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .rent_title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--color-neutral-2);
+      }
+
+      .rent_price_row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .rent_price_num {
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+      }
+
+      .price-val {
+        font-size: 30px;
+        font-weight: 900;
+        color: var(--color-neutral-2);
+      }
+
+      .price-unit {
+        font-size: 13px;
+        color: var(--color-neutral-4);
+      }
+
+      .rent_location {
+        font-size: 13px;
+        color: var(--color-neutral-4);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .rent_location i {
+        color: var(--color-primary);
+      }
+
+      .rent_btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border: 1.5px solid var(--color-neutral-4);
+        color: var(--color-neutral-3);
+        font-size: 13px;
+        text-transform: capitalize;
+        background: #fff;
+        cursor: pointer;
+        transition: var(--transition);
+        font-family: var(--font-family-main);
+        font-weight: 600;
+      }
+
+      .rent_btn:hover {
+        background: var(--color-primary);
+        color: #fff;
+        border-color: var(--color-primary);
+      }
+
+      .see-all-wrap {
+        display: flex;
+        justify-content: center;
+      }
+
+      .see-all-btn {
+        padding: 12px 35px;
+        background: transparent;
+        color: var(--color-primary);
+        font-size: 14px;
+        font-weight: 600;
+        border: 2px solid var(--color-primary);
+        cursor: pointer;
+        text-transform: capitalize;
+        transition: var(--transition);
+        font-family: var(--font-family-main);
+      }
+
+      .see-all-btn:hover {
+        background: var(--color-primary);
+        color: var(--color-white);
+      }
+
+      .service {
+        padding: 100px 0;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+          repeating-linear-gradient(
+            45deg,
+            #f5f5f5 0,
+            #f5f5f5 1px,
+            transparent 0,
+            transparent 50%
+          );
+        background-size:
+          auto,
+          20px 20px;
+      }
+
+      .service_group {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .service_card {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .service_img {
+        width: 100%;
+        aspect-ratio: 4/5;
+        background: var(--color-neutral-2);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .service_img.img-1 {
+        background: linear-gradient(160deg, #2c2c2c, #111);
+      }
+      .service_img.img-2 {
+        background: linear-gradient(160deg, #3a2a2a, #1a0a0a);
+      }
+      .service_img.img-3 {
+        background: linear-gradient(160deg, #2a2a3a, #0a0a1a);
+      }
+
+      .service_img .svc-icon {
+        font-size: 80px;
+        color: rgba(255, 255, 255, 0.12);
+      }
+
+      .service_overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.52);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 25px;
+        color: #fff;
+        text-align: center;
+        gap: 16px;
+        transition: var(--transition);
+      }
+
+      .service_card:hover .service_overlay {
+        background: rgba(245, 87, 87, 0.75);
+      }
+
+      .service_overlay_icon {
+        font-size: 52px;
+      }
+
+      .service_overlay_title {
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: capitalize;
+      }
+
+      .service_overlay_text {
+        font-size: 13px;
+        line-height: 1.6;
+        opacity: 0.9;
+      }
+
+      .service_overlay_btn {
+        padding: 8px 20px;
+        background: #fff;
+        color: var(--color-neutral-1);
+        font-size: 13px;
+        text-transform: capitalize;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        font-family: var(--font-family-main);
+        transition: var(--transition);
+      }
+
+      .service_overlay_btn:hover {
+        background: var(--color-primary);
+        color: #fff;
+      }
+
+      .why {
+        padding: 100px 0;
+      }
+
+      .why_grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 50px;
+      }
+
+      .why_item {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .why_icon_wrap {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-primary);
+        font-size: 20px;
+        border-radius: 4px;
+        transition: var(--transition);
+        font-size: 69px;
+      }
+
+      .why_item_text {
+      }
+
+      .why_item_title {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--color-neutral-2);
+        margin-bottom: 8px;
+        text-transform: capitalize;
+      }
+
+      .why_item_desc {
+        font-size: 13px;
+        color: var(--color-neutral-4);
+        line-height: 1.7;
+      }
+
+      .contact {
+        padding: 100px 0;
+        background: #fafafa;
+      }
+
+      .contact_wrap {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 60px;
+        align-items: start;
+      }
+
+      .contact_info_list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .contact_info_item {
+        display: flex;
+        gap: 14px;
+        font-size: 14px;
+        color: var(--color-neutral-4);
+        line-height: 1.5;
+      }
+
+      .contact_icon {
+        color: var(--color-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+
+      .socials {
+        display: flex;
+        gap: 10px;
+        margin-top: 75px;
+      }
+
+      .socials a {
+        width: 36px;
+        height: 36px;
+        border: 1.5px solid var(--color-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-primary);
+        font-size: 13px;
+        transition: var(--transition);
+      }
+
+      .socials a:hover {
+        background: var(--color-primary);
+        color: #fff;
+      }
+
+      .contact_right {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .contact_map {
+        width: 100%;
+        height: 320px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--color-neutral-7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-neutral-4);
+        font-size: 14px;
+      }
+
+      .contact_map iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 8px;
+      }
+
+      .map-btn {
+        padding: 12px 25px;
+        background: var(--color-primary);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        text-transform: capitalize;
+        font-family: var(--font-family-main);
+        transition: var(--transition);
+        align-self: flex-start;
+      }
+
+      .map-btn:hover {
+        background: #d94040;
+      }
+
+      .review {
+        padding: 100px 0;
+      }
+
+      .review_group {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+
+      .review_card {
+        background: #fff;
+        padding: 28px 24px;
+        box-shadow: 0 5px 20px rgba(255, 79, 79, 0.1);
+        position: relative;
+        transition: var(--transition);
+        border: 1px solid #f5f5f5;
+      }
+
+      .review_card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(255, 79, 79, 0.18);
+      }
+
+      .review_stars {
+        color: var(--color-primary);
+        font-size: 13px;
+        margin-bottom: 14px;
+        display: flex;
+        gap: 2px;
+      }
+
+      .review_quote {
+        font-size: 42px;
+        color: var(--color-primary);
+        line-height: 0.8;
+        margin-bottom: 12px;
+        font-family: Georgia, serif;
+      }
+
+      .review_text {
+        font-size: 14px;
+        color: var(--color-neutral-4);
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+
+      .review_user {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .review_avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--color-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .review_user_info .name {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--color-neutral-2);
+      }
+
+      .review_user_info .role {
+        font-size: 12px;
+        color: var(--color-neutral-5);
+      }
+
+      .subscribe {
+        background: #fbe1e1;
+        padding: 80px 0;
+      }
+
+      .subscribe_wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .subscribe_title {
+        font-size: 34px;
+        font-weight: 700;
+        color: var(--color-neutral-2);
+        text-transform: capitalize;
+      }
+
+      .subscribe_text {
+        font-size: 15px;
+        color: var(--color-neutral-3);
+      }
+
+      .subscribe_form {
+        display: flex;
+        gap: 13px;
+        width: 100%;
+        max-width: 480px;
+        margin-top: 10px;
+      }
+
+      .subscribe_input {
+        flex: 1;
+        padding: 14px 18px;
+        border: none;
+        font-size: 14px;
+        font-family: var(--font-family-main);
+        outline: none;
+        background: #fff;
+      }
+
+      .subscribe_btn {
+        padding: 14px 28px;
+        background: var(--color-primary);
+        color: #fff;
+        border: none;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: var(--font-family-main);
+        text-transform: capitalize;
+        transition: var(--transition);
+      }
+
+      .subscribe_btn:hover {
+        background: #d94040;
+      }
+
+      .footer {
+        background: #f7f7f7;
+        padding: 70px 0 40px;
+        position: relative;
+      }
+
+      .footer_wrap {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer_brand {
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: -1px;
+        color: var(--color-neutral-1);
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .footer_brand span {
+        color: var(--color-primary);
+      }
+
+      .footer_text {
+        font-size: 13px;
+        color: var(--color-neutral-5);
+        line-height: 1.8;
+        margin-bottom: 20px;
+        max-width: 350px;
+      }
+
+      .footer_col_title {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--color-neutral-2);
+        margin-bottom: 18px;
+      }
+
+      .footer_col ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .footer_col li {
+        font-size: 13px;
+        color: var(--color-neutral-5);
+        cursor: pointer;
+        transition: var(--transition);
+        position: relative;
+        padding-left: 0;
+      }
+
+      .footer_col li::before {
+        content: "•";
+        position: absolute;
+        left: -14px;
+        opacity: 0;
+        color: var(--color-primary);
+        transition: var(--transition);
+      }
+
+      .footer_col li:hover {
+        color: var(--color-primary);
+        padding-left: 10px;
+      }
+
+      .footer_col li:hover::before {
+        opacity: 1;
+        left: 0;
+      }
+
+      .footer_bottom {
+        border-top: 1px solid var(--color-neutral-6);
+        padding-top: 24px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--color-neutral-5);
+      }
+
+      .footer_top_btn {
+        position: absolute;
+        bottom: -22px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 44px;
+        height: 44px;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-primary);
+        cursor: pointer;
+        border: none;
+        font-size: 16px;
+        transition: var(--transition);
+      }
+
+      .footer_top_btn:hover {
+        background: var(--color-primary);
+        color: #fff;
+      }
+
+      @media (max-width: 1024px) {
+        .hero_title {
+          font-size: 40px;
+        }
+        .section-title {
+          font-size: 30px;
+        }
+        .rent_group,
+        .service_group,
+        .review_group {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .why_grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .footer_wrap {
+          grid-template-columns: 1fr 1fr;
+          gap: 30px;
+        }
+        .contact_wrap {
+          grid-template-columns: 1fr;
+        }
+        .contact_map {
+          height: 280px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header_nav {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+
+        .hero_wrap {
+          flex-direction: column;
+          padding: 40px 0;
+        }
+        .hero_content {
+          flex: none;
+          text-align: center;
+          align-items: center;
+        }
+        .hero_title {
+          font-size: 32px;
+        }
+        .hero_text {
+          max-width: 100%;
+        }
+        .hero_image {
+          flex: none;
+          width: 100%;
+        }
+        .hero_car_placeholder {
+          max-width: 340px;
+          aspect-ratio: 4/3;
+        }
+        .hero_car_svg {
+          font-size: 80px;
+        }
+
+        .brands {
+          padding: 40px 0;
+        }
+        .brands_wrap {
+          gap: 20px;
+        }
+        .brand_item .brand-name {
+          font-size: 14px;
+        }
+
+        .rent {
+          padding: 70px 0;
+        }
+        .rent_group {
+          grid-template-columns: 1fr;
+          max-width: 400px;
+          margin: 0 auto 40px;
+        }
+
+        .service {
+          padding: 70px 0;
+        }
+        .service_group {
+          grid-template-columns: 1fr;
+          max-width: 400px;
+          margin: 0 auto;
+        }
+
+        .why {
+          padding: 70px 0;
+        }
+        .why_grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .contact {
+          padding: 70px 0;
+        }
+        .contact_wrap {
+          gap: 40px;
+        }
+
+        .review {
+          padding: 70px 0;
+        }
+        .review_group {
+          grid-template-columns: 1fr;
+          max-width: 400px;
+          margin: 0 auto 40px;
+        }
+
+        .subscribe {
+          padding: 60px 0;
+        }
+        .subscribe_title {
+          font-size: 26px;
+        }
+        .subscribe_form {
+          flex-direction: column;
+        }
+        .subscribe_input {
+          width: 100%;
+          border-bottom: 1px solid var(--color-neutral-6);
+        }
+        .subscribe_btn {
+          width: 100%;
+        }
+
+        .footer {
+          padding: 60px 0 50px;
+        }
+        .footer_wrap {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .section-title {
+          font-size: 26px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero_title {
+          font-size: 28px;
+        }
+        .hero_buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+        .btn-primary,
+        .btn-outline {
+          width: 100%;
+          text-align: center;
+        }
+        .brands_wrap {
+          gap: 14px;
+        }
+        .brand_item .brand-name {
+          font-size: 12px;
+        }
+        .map-pin {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="header">
       <div class="container">
         <div class="header_wrap">
-          <a href="" class="header_logo"
+          <a href="#" class="header_logo"
             ><img src="./img/logo.svg" alt="Header Logo"
           /></a>
           <nav class="header_nav">
             <ul class="header_navlist">
-              <li class="header_nav_item"><a href="">about</a></li>
-              <li class="header_nav_item"><a href="">car</a></li>
-              <li class="header_nav_item"><a href="">become partner</a></li>
-              <li class="header_nav_item"><a href="">terms & conditions</a></li>
-              <li class="header_nav_item"><a href="">contact us</a></li>
+              <li class="header_nav_item"><a href="#">About</a></li>
+              <li class="header_nav_item"><a href="#">Car</a></li>
+              <li class="header_nav_item"><a href="#">Become Partner</a></li>
+              <li class="header_nav_item">
+                <a href="#">Terms & Conditions</a>
+              </li>
+              <li class="header_nav_item"><a href="#">Contact Us</a></li>
             </ul>
           </nav>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
         </div>
       </div>
     </header>
+
+    <nav class="mobile-nav" id="mobileNav">
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Car</a></li>
+        <li><a href="#">Become Partner</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+
     <section class="hero">
       <div class="container">
         <div class="hero_wrap">
-          <div class="hero_block">
+          <div class="hero_content">
             <h1 class="hero_title">We Have Prepared a Car For Your Trip</h1>
             <p class="hero_text">
               We have many types of cars that are ready for you to travel
               anywhere and anytime.
             </p>
             <div class="hero_buttons">
-              <button class="hero_button">get in touch</button>
-              <button class="hero_button">our car</button>
+              <button class="btn-primary">Get In Touch</button>
+              <button class="btn-outline">Our Car</button>
             </div>
+          </div>
+          <div class="hero_image">
+            <!-- <div class="hero_car_placeholder">
+              <i class="fa-solid fa-car hero_car_svg"></i>
+              <div class="map-pin pin-a"><i class="fa-solid fa-location-dot"></i> Bali</div>
+              <div class="map-pin pin-b"><i class="fa-solid fa-location-dot"></i> Jakarta</div>
+            </div> -->
           </div>
         </div>
       </div>
     </section>
+
     <section class="brands">
       <div class="container">
         <div class="brands_wrap">
-          <div class="brands_logo">
+          <div class="brand_item">
             <img src="./img/brands/bmw.svg" alt="BMW" />
           </div>
-          <div class="brands_logo">
+          <div class="brand_item">
             <img src="./img/brands/lexus.svg" alt="Lexus" />
           </div>
-          <div class="brands_logo">
+          <div class="brand_item">
             <img src="./img/brands/marcedes.svg" alt="Marcedes" />
           </div>
-          <div class="brands_logo">
+          <div class="brand_item">
             <img src="./img/brands/honda.svg" alt="Honda" />
           </div>
-          <div class="brands_logo">
+          <div class="brand_item">
             <img src="./img/brands/hyundai.svg" alt="Hyundai" />
           </div>
-          <div class="brands_logo">
+          <div class="brand_item">
             <img src="./img/brands/nissan.svg" alt="Nissan" />
           </div>
-          <div class="brands_logo">
+          <div class="brand_item">
             <img src="./img/brands/toyota.svg" alt="Toyota" />
           </div>
-          <div class="brands_logo">
+          <div class="brand_item">
             <img src="./img/brands/kia.svg" alt="KIA" />
           </div>
         </div>
       </div>
     </section>
+
     <section class="rent">
       <div class="container">
-        <div class="rent_wrap">
-          <hgroup class="common_hgroup">
-            <div class="common_title">popular car</div>
-            <h3 class="common_heading">choose your suitable car</h3>
-            <p class="common_paragraph">
-              We present popular cars that are rented by customers to maximize
-              your comfort on long trips.
-            </p>
-          </hgroup>
-          <div class="rent_group">
-            <div class="rent_card">
-              <div class="rent_img">
-                <img src="./img/lexusCT.svg" alt="Lexus CT200H" />
-              </div>
-              <div class="rent_info">
-                <div class="rent_title">Lexus CT200H</div>
-                <div class="rent_price">
-                  <div class="rent_price_num"><span>$120</span> /day</div>
-                  <div class="rent_car_location">
-                    <i class="fa-solid fa-location-dot"></i> Djakarta
-                  </div>
-                </div>
-                <button class="rent_button">
-                  <i class="fa-solid fa-phone"></i><span>rent now</span>
-                </button>
-              </div>
+        <div class="section-header">
+          <div class="section-tag">popular car</div>
+          <h2 class="section-title">choose your suitable car</h2>
+          <p class="section-desc">
+            We present popular cars that are rented by customers to maximize
+            your comfort on long trips.
+          </p>
+        </div>
+        <div class="rent_group">
+          <div class="rent_card">
+            <div class="rent_img">
+              <img src="./img/lexusCT.svg" alt="Lexus CT200H" />
             </div>
-            <div class="rent_card">
-              <div class="rent_img">
-                <img src="./img/jaguar_f_pace.svg" alt="Jaguar F_Pace" />
-              </div>
-              <div class="rent_info">
-                <div class="rent_title">Jaguar F_Pace</div>
-                <div class="rent_price">
-                  <div class="rent_price_num"><span>$132</span> /day</div>
-                  <div class="rent_car_location">
-                    <i class="fa-solid fa-location-dot"></i> Bali
-                  </div>
+            <div class="rent_info">
+              <div class="rent_title">Lexus CT200H</div>
+              <div class="rent_price_row">
+                <div class="rent_price_num">
+                  <span class="price-val">$120</span>
+                  <span class="price-unit">/day</span>
                 </div>
-                <button class="rent_button">
-                  <i class="fa-solid fa-phone"></i><span>rent now</span>
-                </button>
-              </div>
-            </div>
-            <div class="rent_card">
-              <div class="rent_img">
-                <img src="./img/marcedes_benz.svg" alt="Marcedes Benz" />
-              </div>
-              <div class="rent_info">
-                <div class="rent_title">Marcedes Benz</div>
-                <div class="rent_price">
-                  <div class="rent_price_num"><span>$132</span> /day</div>
-                  <div class="rent_car_location">
-                    <i class="fa-solid fa-location-dot"></i> Bandung
-                  </div>
+                <div class="rent_location">
+                  <i class="fa-solid fa-location-dot"></i> Djakarta
                 </div>
-                <button class="rent_button">
-                  <i class="fa-solid fa-phone"></i><span>rent now</span>
-                </button>
               </div>
+              <button class="rent_btn">
+                <i class="fa-solid fa-phone"></i> Rent Now
+              </button>
             </div>
           </div>
-          <button class="rent_button">see all</button>
+          <div class="rent_card">
+            <div class="rent_img">
+              <img src="./img/jaguar_f_pace.svg" alt="Jaguar F_Pace" />
+            </div>
+            <div class="rent_info">
+              <div class="rent_title">Jaguar F-Pace</div>
+              <div class="rent_price_row">
+                <div class="rent_price_num">
+                  <span class="price-val">$132</span>
+                  <span class="price-unit">/day</span>
+                </div>
+                <div class="rent_location">
+                  <i class="fa-solid fa-location-dot"></i> Bali
+                </div>
+              </div>
+              <button class="rent_btn">
+                <i class="fa-solid fa-phone"></i> Rent Now
+              </button>
+            </div>
+          </div>
+          <div class="rent_card">
+            <div class="rent_img">
+              <img src="./img/marcedes_benz.svg" alt="Marcedes Benz" />
+            </div>
+            <div class="rent_info">
+              <div class="rent_title">Mercedes Benz</div>
+              <div class="rent_price_row">
+                <div class="rent_price_num">
+                  <span class="price-val">$132</span>
+                  <span class="price-unit">/day</span>
+                </div>
+                <div class="rent_location">
+                  <i class="fa-solid fa-location-dot"></i> Bandung
+                </div>
+              </div>
+              <button class="rent_btn">
+                <i class="fa-solid fa-phone"></i> Rent Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="see-all-wrap">
+          <button class="see-all-btn">See All</button>
         </div>
       </div>
     </section>
+
     <section class="service">
       <div class="container">
-        <div class="service_wrap">
-          <hgroup class="common_hgroup">
-            <div class="common_title">services</div>
-            <h3 class="common_heading">our services</h3>
-            <p class="common_paragraph">
-              Our service is not only renting a car, but we also provide a
-              private chauffeur service that can guide you on your trip and also
-              longtrip packages to support your travel needs.
-            </p>
-          </hgroup>
-          <div class="service_group">
-            <div class="service_card">
-              <div class="service_img">
-                <img src="./img/instant_rent.jpg" alt="Instant Rent" />
-              </div>
-              <div class="service_desc">
-                <div class="service_icon"><i class="fa-solid fa-key"></i></div>
-                <div class="service_info">
-                  <div class="service_title">instant rent</div>
-                  <p class="service_paragraph">
-                    We provide direct rental services when you need wherever you
-                    are. Our officers are quick to respond in carrying out this
-                    task . . .
-                  </p>
-                </div>
-                <button class="service_bth">read more</button>
-              </div>
+        <div class="section-header">
+          <div class="section-tag">services</div>
+          <h2 class="section-title">our services</h2>
+          <p class="section-desc">
+            Our service is not only renting a car, but we also provide a private
+            chauffeur service that can guide you on your trip and also long trip
+            packages to support your travel needs.
+          </p>
+        </div>
+        <div class="service_group">
+          <div class="service_card">
+            <div class="service_img img-1">
+              <i class="fa-solid fa-key svc-icon"></i>
             </div>
-            <div class="service_card">
-              <div class="service_img">
-                <img src="./img/private_driver.jpg" alt="Private Driver" />
+            <div class="service_overlay">
+              <div class="service_overlay_icon">
+                <i class="fa-solid fa-key"></i>
               </div>
-              <div class="service_desc">
-                <div class="service_icon"><i class="fa-solid fa-user"></i></div>
-                <div class="service_info">
-                  <div class="service_title">private driver</div>
-                  <p class="service_paragraph">
-                    We have professional agents to accompany your trip useful
-                    for your protection from disturbances that you do not like .
-                    . .
-                  </p>
-                </div>
-                <button class="service_bth">read more</button>
-              </div>
+              <div class="service_overlay_title">Instant Rent</div>
+              <p class="service_overlay_text">
+                We provide direct rental services when you need wherever you
+                are. Our officers are quick to respond in carrying out this task
+                . . .
+              </p>
+              <button class="service_overlay_btn">Read More</button>
             </div>
-            <div class="service_card">
-              <div class="service_img">
-                <img src="./img/long_trip.jpg" alt="Long Trip" />
+          </div>
+          <div class="service_card">
+            <div class="service_img img-2">
+              <i class="fa-solid fa-user svc-icon"></i>
+            </div>
+            <div class="service_overlay">
+              <div class="service_overlay_icon">
+                <i class="fa-solid fa-user"></i>
               </div>
-              <div class="service_desc">
-                <div class="service_icon"><i class="fa-solid fa-road"></i></div>
-                <div class="service_info">
-                  <div class="service_title">long trip</div>
-                  <p class="service_paragraph">
-                    Long trips whenever and wherever you want can comfortably
-                    use our car collection that supports long and long trips . .
-                    .
-                  </p>
-                </div>
-                <button class="service_bth">read more</button>
+              <div class="service_overlay_title">Private Driver</div>
+              <p class="service_overlay_text">
+                We have professional agents to accompany your trip useful for
+                your protection from disturbances that you do not like . . .
+              </p>
+              <button class="service_overlay_btn">Read More</button>
+            </div>
+          </div>
+          <div class="service_card">
+            <div class="service_img img-3">
+              <i class="fa-solid fa-road svc-icon"></i>
+            </div>
+            <div class="service_overlay">
+              <div class="service_overlay_icon">
+                <i class="fa-solid fa-road"></i>
               </div>
+              <div class="service_overlay_title">Long Trip</div>
+              <p class="service_overlay_text">
+                Long trips whenever and wherever you want can comfortably use
+                our car collection that supports long and long trips . . .
+              </p>
+              <button class="service_overlay_btn">Read More</button>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <div class="why">
+
+    <section class="why">
       <div class="container">
-        <div class="why_wrap">
-          <hgroup class="common_hgroup">
-            <div class="common_title">advatages</div>
-            <h3 class="common_heading">why choose us?</h3>
-            <p class="common_paragraph">
-              We present many guarantees and advantages when you rent a car with
-              us for your trip. Here are some of the advantages that you will
-              get
-            </p>
-          </hgroup>
-          <div class="why_group">
-            <div class="why_list">
-              <div class="why_list_item">
-                <div class="why_icon">
-                  <i class="fa-solid fa-shuttle-space"></i>
-                </div>
-                <div class="why_title">easy rent</div>
-                <div class="why_text">
-                  Rent a car at our rental with an easy and fast process without
-                  disturbing your productivity
-                </div>
-              </div>
-              <div class="why_list_item">
-                <div class="why_icon">
-                  <i class="fa-solid fa-calendar-check"></i>
-                </div>
-                <div class="why_title">premium quality</div>
-                <div class="why_text">
-                  Our cars are always maintained engine health and cleanliness
-                  to provide a more comfortable driving experience
-                </div>
-              </div>
-              <div class="why_list_item">
-                <div class="why_icon"><i class="fa-solid fa-user"></i></div>
-                <div class="why_title">professional agent</div>
-                <div class="why_text">
-                  You can ask your travel companion to escort and guide your
-                  journey.
-                </div>
-              </div>
+        <div class="section-header">
+          <div class="section-tag">advantages</div>
+          <h2 class="section-title">why choose us?</h2>
+          <p class="section-desc">
+            We present many guarantees and advantages when you rent a car with
+            us for your trip. Here are some of the advantages that you will get.
+          </p>
+        </div>
+        <div class="why_grid">
+          <div class="why_item">
+            <div class="why_icon_wrap">
+              <i class="fa-solid fa-shuttle-space"></i>
             </div>
-            <div class="why_list">
-              <div class="why_list_item">
-                <div class="why_icon"><i class="fa-solid fa-shield"></i></div>
-                <div class="why_title">car safety</div>
-                <div class="why_text">
-                  We guarantee the safety of the engine on the car always
-                  running well with regular checks on the car engine.
-                </div>
-              </div>
-              <div class="why_list_item">
-                <div class="why_icon">
-                  <i class="fa-solid fa-circle-dollar-to-slot"></i>
-                </div>
-                <div class="why_title">refund</div>
-                <div class="why_text">
-                  Our service guarantee provides a money back opportunity if the
-                  car does not match the information provided.
-                </div>
-              </div>
-              <div class="why_list_item">
-                <div class="why_icon"></div>
-                <div class="why_title">live monitoring</div>
-                <div class="why_text">
-                  Our service provides direct customer monitoring to monitor
-                  trips in terms of safety and comfort.
-                </div>
-              </div>
+            <div class="why_item_text">
+              <div class="why_item_title">Easy Rent</div>
+              <p class="why_item_desc">
+                Rent a car at our rental with an easy and fast process without
+                disturbing your productivity.
+              </p>
+            </div>
+          </div>
+          <div class="why_item">
+            <div class="why_icon_wrap">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <div class="why_item_text">
+              <div class="why_item_title">Premium Quality</div>
+              <p class="why_item_desc">
+                Our cars are always maintained engine health and cleanliness to
+                provide a more comfortable driving experience.
+              </p>
+            </div>
+          </div>
+          <div class="why_item">
+            <div class="why_icon_wrap">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <div class="why_item_text">
+              <div class="why_item_title">Professional Agent</div>
+              <p class="why_item_desc">
+                You can ask your travel companion to escort and guide your
+                journey wherever you go.
+              </p>
+            </div>
+          </div>
+          <div class="why_item">
+            <div class="why_icon_wrap">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="why_item_text">
+              <div class="why_item_title">Car Safety</div>
+              <p class="why_item_desc">
+                We guarantee the safety of the engine on the car always running
+                well with regular checks on the car engine.
+              </p>
+            </div>
+          </div>
+          <div class="why_item">
+            <div class="why_icon_wrap">
+              <i class="fa-solid fa-circle-dollar-to-slot"></i>
+            </div>
+            <div class="why_item_text">
+              <div class="why_item_title">Refund</div>
+              <p class="why_item_desc">
+                Our service guarantee provides a money back opportunity if the
+                car does not match the information provided.
+              </p>
+            </div>
+          </div>
+          <div class="why_item">
+            <div class="why_icon_wrap"><i class="fa-solid fa-display"></i></div>
+            <div class="why_item_text">
+              <div class="why_item_title">Live Monitoring</div>
+              <p class="why_item_desc">
+                Our service provides direct customer monitoring to monitor trips
+                in terms of safety and comfort.
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <section class="contact">
       <div class="container">
         <div class="contact_wrap">
           <div class="contact_left">
-            <hgroup class="common_hgroup">
-              <div class="common_title">get in touch</div>
-              <h3 class="common_heading">Contact Us</h3>
-              <p class="common_paragraph">
+            <div
+              class="section-header"
+              style="
+                align-items: flex-start;
+                text-align: left;
+                margin-bottom: 0;
+              "
+            >
+              <div class="section-tag">get in touch</div>
+              <h2 class="section-title">Contact Us</h2>
+              <p class="section-desc" style="max-width: 100%">
                 If you need consultation with us, you can write a message or
                 call us.
               </p>
-            </hgroup>
-
-            <div class="contact_info">
-              <div class="contact_info_items">
-                <div class="contact_info_icon">
+            </div>
+            <div class="contact_info_list">
+              <div class="contact_info_item">
+                <div class="contact_icon">
                   <i class="fa-solid fa-envelope"></i>
                 </div>
                 lorenna@gmail.com
               </div>
-              <div class="contact_info_items">
-                <div class="contact_info_icon">
+              <div class="contact_info_item">
+                <div class="contact_icon">
                   <i class="fa-solid fa-phone"></i>
                 </div>
                 +62 8221 1222 0001
               </div>
-              <div class="contact_info_items">
-                <div class="contact_info_icon">
+              <div class="contact_info_item">
+                <div class="contact_icon">
                   <i class="fa-solid fa-clock"></i>
                 </div>
-                Everyday : 08.00-21.00
+                Everyday: 08.00 – 21.00
               </div>
-              <div class="contact_info_items">
-                <div class="contact_info_icon">
+              <div class="contact_info_item">
+                <div class="contact_icon">
                   <i class="fa-solid fa-location-dot"></i>
                 </div>
                 Jl. Raya Cihaluan No.112 Tangerang Selatan, Indonesia 41222
@@ -340,131 +1617,209 @@
               </div>
             </div>
           </div>
-
           <div class="contact_right">
             <div class="contact_map">
               <iframe
-                src="https://maps.google.com/maps?q=Jl.%20Raya%20Cihaluan%20No.112%20Tangerang%20Selatan%20Indonesia%2041222&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                width="400"
-                height="300"
-                style="border: 0; border-radius: 10px"
+                src="https://maps.google.com/maps?q=Tangerang+Selatan+Indonesia&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 allowfullscreen=""
                 loading="lazy"
               ></iframe>
             </div>
-
-            <button class="main_btn">Office Center Map</button>
+            <button class="map-btn">Office Center Map</button>
           </div>
         </div>
       </div>
     </section>
 
     <section class="review">
-      <div class="container review_wrap">
-        <hgroup class="common_hgroup">
-          <div class="common_title">our review</div>
-          <h3 class="common_heading">what they say</h3>
-          <p class="common_paragraph">
-            Here are some comments from our customers, be one of them
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">our review</div>
+          <h2 class="section-title">What They Say?</h2>
+          <p class="section-desc">
+            Here are some comments from our customers, be one of them.
           </p>
-        </hgroup>
-
+        </div>
         <div class="review_group">
           <div class="review_card">
-            <p>Lorem ipsum dolor sit amet consectetur...</p>
-            <div class="review_user">Melinda Lenny</div>
+            <div class="review_quote">"</div>
+            <p class="review_text">
+              Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+              velit nisi, pretium ut lacinia in, elementum id enim. Curabitur
+              aliquet quam id dui posuere blandit.
+            </p>
+            <div class="review_user">
+              <div class="review_avatar">ML</div>
+              <div class="review_user_info">
+                <div class="name">Melinda Lenny</div>
+                <div class="role">Traveler</div>
+              </div>
+            </div>
+            <div
+              class="review_stars"
+              style="position: absolute; top: 24px; right: 24px"
+            >
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i>
+            </div>
           </div>
-
           <div class="review_card">
-            <p>Lorem ipsum dolor sit amet consectetur...</p>
-            <div class="review_user">Jacob Stevan</div>
+            <div class="review_quote">"</div>
+            <p class="review_text">
+              Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+              velit nisi, pretium ut lacinia in, elementum id enim. Curabitur
+              aliquet quam id dui posuere blandit.
+            </p>
+            <div class="review_user">
+              <div class="review_avatar">JS</div>
+              <div class="review_user_info">
+                <div class="name">Jacob Stevan</div>
+                <div class="role">CEO</div>
+              </div>
+            </div>
+            <div
+              class="review_stars"
+              style="position: absolute; top: 24px; right: 24px"
+            >
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star-half-stroke"></i>
+            </div>
           </div>
-
           <div class="review_card">
-            <p>Lorem ipsum dolor sit amet consectetur...</p>
-            <div class="review_user">Roben Musstar</div>
+            <div class="review_quote">"</div>
+            <p class="review_text">
+              Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+              velit nisi, pretium ut lacinia in, elementum id enim. Curabitur
+              aliquet quam id dui posuere blandit.
+            </p>
+            <div class="review_user">
+              <div class="review_avatar">RM</div>
+              <div class="review_user_info">
+                <div class="name">Roben Musstar</div>
+                <div class="role">Customer</div>
+              </div>
+            </div>
+            <div
+              class="review_stars"
+              style="position: absolute; top: 24px; right: 24px"
+            >
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i>
+            </div>
           </div>
         </div>
-
-        <button class="main_btn">See All</button>
+        <div class="see-all-wrap">
+          <button class="see-all-btn">See All</button>
+        </div>
       </div>
     </section>
 
     <section class="subscribe">
       <div class="container">
         <div class="subscribe_wrap">
-          <hgroup class="subscribe_hgroup">
-            <h1 class="subscribe_title">subscribe our news</h1>
-            <p class="subscribe_text">
-              We can help you provide the latest news whenever and wherever you
-              are via email
-            </p>
-          </hgroup>
-          <form class="subscribe_form">
+          <h2 class="subscribe_title">Subscribe Our News</h2>
+          <p class="subscribe_text">
+            We can help you provide the latest news whenever and wherever you
+            are via email
+          </p>
+          <div class="subscribe_form">
             <input
               type="email"
-              placeholder="example@gmail.com"
               class="subscribe_input"
+              placeholder="example@gmail.com"
             />
-            <button type="submit" class="subscribe_btn">Subscribe</button>
-          </form>
+            <button class="subscribe_btn">Subscribe</button>
+          </div>
         </div>
       </div>
     </section>
-    <footer class="footer">
-      <div class="container footer_wrap">
-        <div class="footer_left">
-          <a href="" class="footer_logo"
-            ><img src="./img/logo.svg" alt="Header Logo"
-          /></a>
-          <p class="footer_text">
-            We are a well-known car rental service that has many partners in
-            each region to connect with you to assist in your trip in meetings,
-            events, holidays or long trips.
-          </p>
 
-          <div class="socials">
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer_wrap">
+          <div class="footer_left">
+            <a href="#" class="footer_brand"
+              ><img src="./img/logo.svg" alt="Header Logo"
+            /></a>
+            <p class="footer_text">
+              We are a well-known car rental service that has many partners in
+              each region to connect with you to assist in your trip in
+              meetings, events, holidays or long trips.
+            </p>
+            <div class="socials">
+              <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#"><i class="fa-brands fa-twitter"></i></i></a>
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="footer_col">
+            <h4 class="footer_col_title">Company</h4>
+            <ul>
+              <li>About Us</li>
+              <li>Services</li>
+              <li>Cars</li>
+              <li>Our Partner</li>
+            </ul>
+          </div>
+          <div class="footer_col">
+            <h4 class="footer_col_title">Services</h4>
+            <ul>
+              <li>Instant Rent</li>
+              <li>Private Driver</li>
+              <li>Long Trip</li>
+            </ul>
+          </div>
+          <div class="footer_col">
+            <h4 class="footer_col_title">Support</h4>
+            <ul>
+              <li>Blog</li>
+              <li>FAQ</li>
+              <li>Call Center</li>
+              <li>Partner With Us</li>
+              <li>Terms & Condition</li>
+            </ul>
           </div>
         </div>
-
-        <div class="footer_col">
-          <h4 class="footer_title">Company</h4>
-          <ul>
-            <li>About Us</li>
-            <li>Services</li>
-            <li>Cars</li>
-            <li>Our Partner</li>
-          </ul>
+        <div class="footer_bottom">
+          © 2024 BRNN Car Rental. All rights reserved.
         </div>
-
-        <div class="footer_col">
-          <h4 class="footer_title">Services</h4>
-          <ul>
-            <li>Instant Rent</li>
-            <li>Private Driver</li>
-            <li>Long Trip</li>
-          </ul>
-        </div>
-
-        <div class="footer_col">
-          <h4 class="footer_title">Support</h4>
-          <ul>
-            <li>Blog</li>
-            <li>FAQ</li>
-            <li>Call Center</li>
-            <li>Partner With Us</li>
-            <li>Terms & Condition</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer_top">
-        <i class="fa-solid fa-angle-up"></i>
+        <button
+          class="footer_top_btn"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        >
+          <i class="fa-solid fa-angle-up"></i>
+        </button>
       </div>
     </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const mobileNav = document.getElementById("mobileNav");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        mobileNav.classList.toggle("open");
+      });
+
+      mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          mobileNav.classList.remove("open");
+        });
+      });
+
+      const header = document.querySelector(".header");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) {
+          header.style.boxShadow = "0 2px 20px rgba(0,0,0,0.08)";
+        } else {
+          header.style.boxShadow = "none";
+        }
+      });
+    </script>
   </body>
 </html>
