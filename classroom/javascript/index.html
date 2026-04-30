@@ -1,13 +1,249 @@
-<!DOCTYPE html>
-<html>
+<!-- <!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Random Color</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ginance</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      padding: 50px;
+      font-family: sans-serif;
+      color: white;
+    }
+
+    .app {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    header {
+      position: fixed;
+      top: 20px;
+      left: 50px;
+      right: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title {
+      color: #0f0;
+      font-size: 48px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    #balance, #quantity {
+      color: #ccc;
+      font-size: 24px;
+    }
+    #balance::before { content: "Balance: $"; }
+    #quantity::after { content: " pcs"; }
+
+    #price {
+      font-size: 48px;
+      color: #fff;
+    }
+
+    #price::before {
+      content: "$";
+    }
+
+    .btn_group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .btn {
+      width: 200px;
+      height: 50px;
+      border: none;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: #000;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover { opacity: 0.8; }
+
+    #buy { background: #0f0; }
+    #sell { background: #f00; }
+
+    .history {
+      max-height: 200px;
+      overflow-y: auto;
+      width: 400px;
+      background: #222;
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .history h3 { text-align: center; margin-bottom: 10px; }
+
+    .history-entry {
+      font-size: 16px;
+      padding: 5px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    canvas {
+      background: #000;
+      border: 1px solid #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1 class="title">Ginance</h1>
+      <div id="balance"></div>
+      <div id="quantity"></div>
+    </header>
+
+    <div id="price"></div>
+
+    <canvas id="chart" width="600" height="200"></canvas>
+
+    <div class="btn_group">
+      <button class="btn" id="buy">Buy</button>
+      <button class="btn" id="sell">Sell</button>
+    </div>
+
+    <div class="history">
+      <h3>Trade History</h3>
+      <div id="history-log"></div>
+    </div>
+  </div>
+
+  <script>
+    const balance = document.getElementById("balance")
+    const quantity = document.getElementById("quantity")
+    const price = document.getElementById("price")
+    const buy = document.getElementById("buy")
+    const sell = document.getElementById("sell")
+    const historyLog = document.getElementById("history-log")
+    const chart = document.getElementById("chart")
+    const ctx = chart.getContext("2d")
+
+    const data = {
+      price: 499,
+      quantity: 0,
+      balance: 10000,
+      history: [],
+      priceHistory: []
+    }
+
+    function render(){
+      balance.textContent = data.balance.toFixed(2)
+      quantity.textContent = data.quantity
+      price.textContent = data.price.toFixed(2)
+      drawChart()
+    }
+
+    function logTrade(type, tradePrice){
+      const time = new Date().toLocaleTimeString()
+      const entry = document.createElement("div")
+      entry.classList.add("history-entry")
+      entry.textContent = `${time} - ${type} at $${tradePrice.toFixed(2)}`
+      if(type === "BUY") entry.style.color = "#0f0"
+      if(type === "SELL") entry.style.color = "#f00"
+      historyLog.prepend(entry)
+      data.history.push({type, tradePrice, time})
+    }
+
+    function updatePrice(){
+      setInterval(() => {
+        const change = Math.round(Math.random() * data.price * 0.05 - data.price * 0.025)
+        data.price = Math.max(1, data.price + change)
+        data.priceHistory.push(data.price)
+        if (data.priceHistory.length > 50) data.priceHistory.shift()
+        if(change > 0) price.style.color = "#0f0"
+        else if(change < 0) price.style.color = "#f00"
+        else price.style.color = "#fff"
+        render()
+      }, 2000)
+    }
+
+  function drawChart(){
+  const ph = data.priceHistory
+  ctx.clearRect(0,0,chart.width,chart.height)
+  if(ph.length < 2) return
+
+  const max = Math.max(...ph)
+  const min = Math.min(...ph)
+  const range = max - min || 1
+  const step = chart.width / (ph.length - 1)
+
+  const last = ph[ph.length - 1]
+  const prev = ph[ph.length - 2]
+
+  let color = "#fff"
+  if (last > prev) color = "#0f0"   
+  else if (last < prev) color = "#f00"
+
+  ctx.beginPath()
+  ctx.moveTo(0, chart.height - ((ph[0]-min)/range)*chart.height)
+
+  for(let i=1;i<ph.length;i++){
+    const y = chart.height - ((ph[i]-min)/range)*chart.height
+    ctx.lineTo(i*step, y)
+  }
+
+  ctx.strokeStyle = color
+  ctx.lineWidth = 2
+  ctx.stroke()
+}
+
+    buy.addEventListener("click", () => {
+      if(data.balance >= data.price){
+        data.balance -= data.price
+        data.quantity++
+        logTrade("BUY", data.price)
+        render()
+      }
+    })
+
+    sell.addEventListener("click", () => {
+      if(data.quantity > 0){
+        data.balance += data.price
+        data.quantity--
+        logTrade("SELL", data.price)
+        render()
+      }
+    })
+
+    updatePrice()
+    render()
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Cursor</title>
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-<button id="btn">Change Color</button>
+<div class="cursor"></div>
 
-<script src="script.js"></script>
+<script src="script.js">
+</script>
+
 </body>
 </html>
